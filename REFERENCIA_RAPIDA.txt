@@ -1,0 +1,180 @@
+# HOJA DE REFERENCIA RÁPIDA - PARCIAL 4
+# Simulador de Máquina de Turing Determinista
+
+## COMANDOS ESENCIALES
+
+### Ejecutar Simulador
+python turing_machine_simulator.py inputs\input_accept.txt outputs\output_accept.txt
+python turing_machine_simulator.py inputs\input_reject.txt outputs\output_reject.txt
+python turing_machine_simulator.py inputs\input_infinite.txt outputs\output_infinite.txt
+
+### Ejecutar Pruebas
+powershell -ExecutionPolicy Bypass -File test_simulator.ps1
+
+### Ver Salida
+type outputs\output_accept.txt
+type outputs\output_reject.txt
+type outputs\output_infinite.txt | Select-Object -First 50
+
+---
+
+## MÁQUINA DISEÑADA
+
+Propósito: Verificar si una cadena binaria tiene número PAR de 1's
+
+Estados:
+- q0: contador par (estado inicial)
+- q1: contador impar
+- qloop: ciclo infinito
+- qaccept: aceptación
+- qreject: rechazo
+
+Alfabetos:
+- Σ = {0, 1}
+- Γ = {0, 1, x, _}
+
+Transiciones clave:
+- δ(q0, 1) = (q1, 1, R)  // Par → Impar
+- δ(q1, 1) = (q0, 1, R)  // Impar → Par
+- δ(q0, _) = (qaccept, _, R)  // Par → ACEPTA
+- δ(q1, _) = (qreject, _, R)  // Impar → RECHAZA
+- δ(q0, x) = (qloop, x, R)  // Cualquier → CICLO
+- δ(q1, x) = (qloop, x, R)  // Cualquier → CICLO
+
+---
+
+## CASOS DE PRUEBA
+
+Caso 1: ACEPTACIÓN
+Entrada: 0110 (2 unos = par)
+Resultado: ACEPTA
+Configuraciones: 6 pasos
+
+Caso 2: RECHAZO
+Entrada: 001 (1 uno = impar)
+Resultado: RECHAZA
+Configuraciones: 5 pasos
+
+Caso 3: CICLO INFINITO
+Entrada: 01x (contiene 'x')
+Resultado: CICLO_INFINITO
+Configuraciones: 10,000 pasos (límite)
+
+---
+
+## NOTACIÓN
+
+Configuración: uqv
+- u: parte leída (izquierda)
+- q: estado actual
+- v: parte por leer (derecha)
+
+Ejemplo: 011q00
+- Ya leído: "011"
+- Estado: q0
+- Por leer: "0"
+
+Transición: δ(q, a) = (p, b, D)
+- q: estado actual
+- a: símbolo leído
+- p: nuevo estado
+- b: símbolo escrito
+- D: dirección (L/R)
+
+---
+
+## ARCHIVOS A ENTREGAR (8 TOTAL)
+
+[✓] turing_machine_simulator.py (inciso a)
+[✓] DIAGRAMA_MAQUINA_TURING.md (inciso b)
+[✓] inputs/input_accept.txt (inciso c)
+[✓] outputs/output_accept.txt (inciso d)
+[✓] inputs/input_reject.txt (inciso e)
+[✓] outputs/output_reject.txt (inciso f)
+[✓] inputs/input_infinite.txt (inciso g)
+[✓] outputs/output_infinite.txt (inciso h)
+
+---
+
+## PUNTOS CLAVE PARA EXPLICAR
+
+1. Máquina determinista (una transición por (estado, símbolo))
+2. No usa memoria externa (solo cinta)
+3. Configuraciones en notación de clase (uqv)
+4. Detecta aceptación, rechazo y ciclo infinito
+5. Valida especificación antes de ejecutar
+6. Cinta se expande dinámicamente
+
+---
+
+## PREGUNTAS FRECUENTES
+
+P: ¿Por qué verificar número par de 1's?
+R: Es simple pero completo, demuestra todos los requisitos.
+
+P: ¿Cómo detectas ciclo infinito?
+R: Límite de 10,000 pasos. Estado qloop diseñado para ciclar.
+
+P: ¿Qué pasa si se acaba la cinta?
+R: Se expande automáticamente con blancos (_).
+
+P: ¿Por qué Python?
+R: Código claro, legible, no requiere librerías externas.
+
+---
+
+## VERIFICACIÓN FINAL
+
+Antes de presentar, ejecutar:
+1. python --version (verificar Python)
+2. dir (verificar archivos)
+3. test_simulator.ps1 (probar todo)
+4. Ver que todas las pruebas pasan
+
+Resultado esperado:
+Total: 3
+Exitosas: 3
+Fallidas: 0
+TODAS LAS PRUEBAS PASARON
+
+---
+
+## ESTRUCTURA DEL CÓDIGO
+
+class TuringMachine:
+    __init__()           # Constructor
+    load_from_file()     # Carga especificación
+    validate_specification()  # Valida MT
+    step()               # Ejecuta un paso
+    run()                # Ejecuta simulación
+    save_output()        # Guarda resultado
+
+---
+
+## DEFINICIÓN FORMAL
+
+M = (Q, Σ, Γ, δ, q0, B, F, R)
+
+Q: {q0, q1, qloop, qaccept, qreject}
+Σ: {0, 1}
+Γ: {0, 1, x, _}
+q0: q0
+B: _
+F: {qaccept}
+R: {qreject}
+δ: Ver tabla en DIAGRAMA_MAQUINA_TURING.md
+
+---
+
+## CONTACTOS DE EMERGENCIA
+
+Si algo falla:
+1. Reiniciar PowerShell
+2. Verificar directorio: cd d:\UVG\Parcial4LM
+3. Regenerar salidas con comandos individuales
+4. Consultar INSTRUCCIONES_PRESENTACION.md
+
+---
+
+ÚLTIMA ACTUALIZACIÓN: Noviembre 6, 2025
+ESTADO: ✅ TODO LISTO PARA PRESENTAR

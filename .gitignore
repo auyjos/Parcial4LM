@@ -1,0 +1,151 @@
+# ============================================
+# .gitignore para Simulador de Máquina de Turing
+# ============================================
+
+# ====== Archivos de salida generados ======
+# Los outputs se generan al ejecutar el programa
+outputs/
+output_*.txt
+*.out
+
+# ====== Python ======
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Entornos virtuales
+venv/
+ENV/
+env/
+.venv
+
+# Distribución / empaquetado
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# ====== IDEs y Editores ======
+# Visual Studio Code
+.vscode/
+*.code-workspace
+.history/
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ====== Sistema Operativo ======
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ====== Archivos temporales ======
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+
+# ====== Logs ======
+*.log
+logs/
+*.log.*
+
+# ====== Archivos de prueba temporal ======
+test_*.txt
+temp_*.txt
+debug_*.txt
+
+# ====== Archivos de configuración local ======
+config.local.*
+.env
+.env.local
+
+# ====== Archivos muy grandes (ciclo infinito) ======
+# Descomentar si quieres ignorar outputs de ciclo infinito
+# output_infinite.txt
+# output_*_infinite.txt
+
+# ====== Documentación generada ======
+docs/_build/
+site/
+
+# ====== Archivos comprimidos (excepto entregas) ======
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+# Pero NO ignorar archivos de entrega
+!Parcial4_Entrega.zip
+
+# ====== Coverage y tests ======
+.coverage
+.pytest_cache/
+htmlcov/
+.tox/
+
+
+
+
+
+# ====== Archivos específicos a ignorar ======
+# Descomentar según necesites
+# errores.txt
+# debug_output.txt
+# test_personal.txt

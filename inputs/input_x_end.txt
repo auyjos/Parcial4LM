@@ -1,0 +1,24 @@
+# Archivo de especificación de Máquina de Turing
+# Caso: X al final (ciclo infinito)
+
+Q: q0,q1,qloop,qaccept,qreject
+Sigma: 0,1
+Gamma: 0,1,x,_
+q0: q0
+B: _
+F: qaccept
+R: qreject
+Delta:
+q0,0,q0,0,R
+q0,1,q1,1,R
+q0,x,qloop,x,R
+q0,_,qaccept,_,R
+q1,0,q1,0,R
+q1,1,q0,1,R
+q1,x,qloop,x,R
+q1,_,qreject,_,R
+qloop,0,qloop,0,R
+qloop,1,qloop,1,R
+qloop,x,qloop,x,R
+qloop,_,qloop,_,R
+Input: 1111x
