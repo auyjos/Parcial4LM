@@ -435,12 +435,6 @@ La relación de transición **⊢** se define:
 - ✅ **Estados explícitos**: Tiene estados de aceptación y rechazo definidos
 - ✅ **Ciclos detectados**: Puede identificar ciclos infinitos
 
-### Para la Presentación
-1. **Llevar laptop** con Python instalado
-2. **Tener los archivos** en la carpeta correcta
-3. **Conocer los casos**: Poder explicar cada uno
-4. **Entender el código**: Revisar el simulador
-5. **Probar antes**: Ejecutar todos los casos
 
 ### Troubleshooting Común
 
