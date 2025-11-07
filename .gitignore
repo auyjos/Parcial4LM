@@ -4,8 +4,6 @@
 
 # ====== Archivos de salida generados ======
 # Los outputs se generan al ejecutar el programa
-outputs/
-output_*.txt
 *.out
 
 # ====== Python ======
