@@ -1,6 +1,6 @@
 # Simulador de Máquina de Turing - Parcial 4
 
-**Estudiante:** [Tu Nombre]  
+**Grupo:** Levis 
 **Curso:** Lenguajes y Máquinas  
 **Fecha:** Noviembre 2025
 
